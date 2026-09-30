@@ -1,0 +1,584 @@
+/* ============================================================
+   SneakerPapi — Module 12
+   Full Stylesheet (style.css)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap');
+
+:root {
+    --sp-red: #E8202A;
+    --sp-red-dark: #B3141C;
+    --sp-black: #000000;
+    --sp-ink: #202020;
+    --sp-paper: #F4F3F1;
+    --sp-line: #D8D6D2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ---------- Page background & layout ---------- */
+
+body {
+    margin: 0;
+    padding: 60px 20px;
+    min-height: 100vh;
+    font-family: 'Barlow', Arial, sans-serif;
+    color: var(--sp-ink);
+    background-color: var(--sp-paper);
+    background-image: url('SneakerPapi_Template.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative; /* Context for top logo positioning */
+}
+
+/* ---------- Upper Right Logo ---------- */
+
+.top-logo {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    max-height: 120px;
+    width: auto;
+    object-fit: contain;
+    z-index: 100;
+}
+
+/* Content area width constraints */
+h1, h2, form, #outputContainer, #stateFlow {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---------- Headings ---------- */
+
+h1 {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--sp-black);
+    margin: 0 0 30px;
+    padding: 14px 22px;
+    background: #FFFFFF;
+    border-left: 10px solid var(--sp-red);
+    box-shadow: 0 2px 0 var(--sp-black);
+}
+
+h2 {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 30px auto 0;
+    padding: 10px 22px;
+    background: var(--sp-black);
+    clip-path: polygon(0 0, 100% 0, calc(100% - 22px) 100%, 0 100%);
+}
+
+h3 {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 20px;
+    color: var(--sp-red-dark);
+    margin: 0 0 10px;
+}
+
+/* ---------- Form & Panels ---------- */
+
+form,
+#outputContainer,
+#stateFlow {
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid var(--sp-line);
+    border-top: 4px solid var(--sp-red);
+    padding: 24px 26px;
+    margin-top: 0;
+    margin-bottom: 26px;
+}
+
+form p {
+    margin: 0 0 16px;
+}
+
+label {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--sp-black);
+    margin-bottom: 6px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--sp-ink);
+    background: #FFFFFF;
+    border: 1px solid var(--sp-line);
+    border-radius: 0;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--sp-red);
+    box-shadow: inset 0 -2px 0 var(--sp-red);
+}
+
+input::placeholder {
+    color: #A9A6A2;
+}
+
+button {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    background: var(--sp-red);
+    border: none;
+    padding: 12px 34px;
+    cursor: pointer;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+}
+
+button:hover {
+    background: var(--sp-black);
+}
+
+button:focus-visible {
+    outline: 3px solid var(--sp-black);
+    outline-offset: 3px;
+}
+
+/* ---------- Execution Logs ---------- */
+
+#outputContainer ul {
+    margin: 0 0 24px;
+    padding-left: 20px;
+}
+
+#outputContainer li {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 6px;
+    padding-left: 6px;
+    border-left: 3px solid var(--sp-red);
+}
+
+#outputContainer p strong {
+    color: var(--sp-red-dark);
+}
+
+/* ---------- Product Registration Table / Order Info Table ---------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 17px;
+    text-align: left;
+    color: #FFFFFF;
+    background: var(--sp-black);
+    padding: 9px 12px;
+}
+
+td {
+    padding: 9px 12px;
+    border: 1px solid var(--sp-line);
+}
+
+tr:nth-child(even) td {
+    background: #FAFAF9;
+}
+
+td:first-child {
+    font-weight: 600;
+    width: 38%;
+    color: var(--sp-black);
+}
+
+/* ---------- Responsive / Mobile ---------- */
+
+@media (max-width: 640px) {
+    body {
+        padding: 24px 12px;
+        background-attachment: scroll;
+    }
+
+    .top-logo {
+        max-height: 75px;
+        top: 10px;
+        right: 12px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    form,
+    #outputContainer,
+    #stateFlow {
+        padding: 18px 16px;
+    }
+}
+
+/* ============================================================
+   Module 12 Extensions — Order Tracking Timeline
+   Added on top of the existing SneakerPapi design; reuses the
+   same colors, fonts, and panel styling as the rest of the page.
+   ============================================================ */
+
+/* The always-visible tracker panel uses the same "card" styling
+   as the form / outputContainer / stateFlow blocks above. */
+#trackerPanel {
+    max-width: 900px;
+    margin: 0 auto 26px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid var(--sp-line);
+    border-top: 4px solid var(--sp-red);
+    padding: 24px 26px;
+}
+
+/* Tracking Number field hint (optional after first entry) */
+.field-hint {
+    font-size: 12px;
+    color: #6B6863;
+    margin: -12px 0 16px;
+}
+
+/* ---------- Module 11 -> Module 12 handoff note ---------- */
+
+.handoff-row {
+    font-size: 12px;
+    color: #6B6863;
+    letter-spacing: 0.2px;
+    margin: 0 0 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--sp-line);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.handoff-badge {
+    display: inline-block;
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    background: #6B6863;
+    padding: 2px 8px;
+}
+
+.handoff-badge.current {
+    background: var(--sp-red);
+}
+
+.handoff-arrow {
+    color: #A9A6A2;
+    font-weight: 700;
+}
+
+/* ---------- Status pill next to "Current Status" ---------- */
+
+.status-pill {
+    display: inline-block;
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    background: var(--sp-red);
+    padding: 3px 12px;
+}
+
+.status-pill.DELIVERED { background: var(--sp-black); }
+
+/* ---------- Horizontal Order Tracking Path ---------- */
+
+.tt-wrap {
+    overflow-x: auto;
+    padding-bottom: 4px;
+    margin-top: 25px;
+}
+
+table + h3 {
+    margin-top: 40px;
+}
+
+.tt-track {
+    min-width: 640px;
+}
+
+.tt-nodes {
+    display: flex;
+    align-items: flex-start;
+}
+
+.tt-node {
+    flex: 1 1 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 6px;
+}
+
+/* Connector segment reaching from this node to the next one.
+   Colored "done" when the order has already passed through it. */
+.tt-node:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 17px;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: var(--sp-line);
+    z-index: 0;
+}
+
+.tt-node.done:not(:last-child)::after {
+    background: var(--sp-black);
+}
+
+.tt-marker {
+    position: relative;
+    z-index: 1;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    border: 2px solid var(--sp-line);
+    color: #A9A6A2;
+    background: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.tt-node.done .tt-marker {
+    background: var(--sp-black);
+    border-color: var(--sp-black);
+    color: #FFFFFF;
+}
+
+.tt-node.current .tt-marker {
+    background: var(--sp-red);
+    border-color: var(--sp-red);
+    color: #FFFFFF;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 8px;
+    box-shadow: 0 0 0 4px rgba(232, 32, 42, 0.18);
+    animation: tt-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes tt-pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(232, 32, 42, 0.18); }
+    50%      { box-shadow: 0 0 0 8px rgba(232, 32, 42, 0.08); }
+}
+
+.tt-label {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    color: var(--sp-black);
+}
+
+.tt-node.upcoming .tt-label {
+    color: #A9A6A2;
+}
+
+.tt-node.current .tt-label {
+    color: var(--sp-red-dark);
+}
+
+.tt-desc {
+    font-size: 12px;
+    color: #6B6863;
+    margin-top: 3px;
+    line-height: 1.4;
+}
+
+.tt-node.upcoming .tt-desc {
+    color: #A9A6A2;
+}
+
+.tt-time {
+    font-size: 11px;
+    color: #6B6863;
+    margin-top: 6px;
+}
+
+.tt-node.upcoming .tt-time {
+    font-style: italic;
+    color: #A9A6A2;
+}
+
+/* ---------- Running-shoe indicator row ---------- */
+
+.tt-bar-row {
+    position: relative;
+    height: 34px;
+    margin-top: 18px;
+}
+
+.tt-bar-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--sp-line);
+    transform: translateY(-50%);
+}
+
+.tt-sneaker {
+    position: absolute;
+    top: 50%;
+    font-size: 20px;
+    line-height: 1;
+    transform: translate(-50%, -50%);
+    background: #FFFFFF;
+    border: 2px solid var(--sp-red);
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+    transition: left 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: tt-bob 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes tt-bob {
+    from { margin-top: -2px; }
+    to   { margin-top: 2px; }
+}
+
+.tt-sneaker-caption {
+    text-align: center;
+    font-size: 12px;
+    color: #6B6863;
+    margin-top: 10px;
+}
+
+/* ---------- Status Flow & Transition Rules (static FSM summary) ---------- */
+
+.flow-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+.flow-state {
+    font-size: 15px;
+    color: #FFFFFF;
+    background: var(--sp-black);
+    padding: 6px 14px;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+}
+
+.flow-arrow {
+    color: var(--sp-red);
+    font-size: 18px;
+}
+
+.flow-rule {
+    text-align: center;
+    font-size: 13px;
+    color: #6B6863;
+    margin: 16px 0 0;
+    line-height: 1.6;
+}
+
+/* ---------- Transition confirmation / error banners ---------- */
+
+.status-banner {
+    border-left: 6px solid var(--sp-black);
+    background: #FFFFFF;
+    padding: 14px 18px;
+    margin: 0 0 20px;
+}
+
+.status-banner .banner-title {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin: 0 0 6px;
+}
+
+.status-banner .banner-body {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--sp-ink);
+}
+
+.status-banner.success {
+    border-left-color: var(--sp-black);
+}
+
+.status-banner.success .banner-title {
+    color: var(--sp-black);
+}
+
+.status-banner.error {
+    border-left-color: var(--sp-red);
+    background: #FFF5F5;
+}
+
+.status-banner.error .banner-title {
+    color: var(--sp-red-dark);
+}
+
+.success-banner {
+    background: #fff4f4;
+    border: 1px solid #f3d0d0;
+    padding: 24px 34px;
+    margin: 0 0 20px;
+}
+
+.success-banner strong {
+    display: block;
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 24px;
+    color: var(--sp-red-dark);
+    margin-bottom: 12px;
+}
+
+.success-banner span {
+    display: block;
+    font-size: 18px;
+    color: #333;
+}
+
+@media (max-width: 640px) {
+    #trackerPanel {
+        padding: 18px 16px;
+    }
+}
