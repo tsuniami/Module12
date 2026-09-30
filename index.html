@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SneakerPapi - Shipping & Order Status Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="Logo.png" alt="SneakerPapi Logo" class="top-logo">
+
+    <h1>Shipping &amp; Order Status Tracker</h1>
+
+    <h2>Status Update Form</h2>
+    <form id="trackingForm">
+        <p>
+            <label for="orderId">Order ID:</label><br>
+            <input type="text" id="orderId" required placeholder="ORD-2026-901">
+        </p>
+        <p>
+            <label for="trackingNo">Tracking Number:</label><br>
+            <input type="text" id="trackingNo" placeholder="JT99201823">
+        </p>
+        <p>
+            <label for="newState">New State Selection:</label><br>
+            <select id="newState">
+                <option value="RESERVED">RESERVED</option>
+                <option value="PROCESSING">PROCESSING</option>
+                <option value="SHIPPED">SHIPPED</option>
+                <option value="IN_TRANSIT">IN_TRANSIT</option>
+                <option value="DELIVERED">DELIVERED</option>
+            </select>
+        </p>
+        <button type="submit">Update Order Status</button>
+    </form>
+
+    <h2>Tracking Output &amp; Confirmation</h2>
+    <div id="outputContainer"></div>
+    
+    <h2>Order Tracking Timeline</h2>
+    <div id="trackerPanel"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
